@@ -6,6 +6,10 @@ const config = require(__dirname + '/config.json');
 
 const BEARER_TOKEN = config.bearer_token;
 const HIPCHAT_TOKEN = config.hipchat_token;
+const HIPCHAT_PROTOCOL = config.hipchat_protocol;
+const HIPCHAT_DOMAIN = config.hipchat_domain;
+const HIPCHAT_ROOM = config.hipchat_room;
+
 const accounts = config.twitter_accounts;
 
 function getTweetsForAccount (account, callback) {
@@ -26,7 +30,7 @@ function getTweetsForAccount (account, callback) {
 
 function postTweet (message, account) {
     let msg = escape(message);
-    let url_parts = url.parse('https://hipchat.vimeows.com/v1/rooms/message?format=json&message_format=text&room_id=ComDirs&from=' + account + '&color=yellow&message=' + msg + '&auth_token=' + HIPCHAT_TOKEN);
+    let url_parts = url.parse(`${HIPCHAT_PROTOCOL}://${HIPCHAT_DOMAIN}/v1/rooms/message?format=json&message_format=text&room_id=${HIPCHAT_ROOM}&from=${account}&color=yellow&message=${msg}&auth_token=${HIPCHAT_TOKEN}`);
     url_parts.method = 'POST';
 
     let req = https.request(url_parts, (res) => console.log(res));
