@@ -1,13 +1,13 @@
 {
   "name": "hiptweet",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Update HipChat with specific tweets.",
   "main": "hiptweet.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Zena Hirsch <zena@vimeo.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "moment": "^2.10.3",
     "node-hipchat": "^0.4.5",
